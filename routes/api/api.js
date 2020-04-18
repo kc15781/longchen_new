@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-
-
+var nodemailer = require('nodemailer');
+require('dotenv').config();
+const password = process.env.email_password;
 //Item Model 
 const Item = require('../../models/items');
 
@@ -9,11 +10,47 @@ const Item = require('../../models/items');
 // @desc Get All Items
 // @access Public 
 
-router.get('/form',(req,res)=>{
+router.post('/form',(req,res)=>{
+    console.log(req.body)
+    // Create the transporter with the required configuration for Outlook
+    // change the user and pass !
+    var transporter = nodemailer.createTransport({
+        host: "smtp.live.com", // hostname
+        secureConnection: false, // TLS requires secureConnection to be false
+        port: 587, // port for secure SMTP
+        tls: {
+        ciphers:'SSLv3'
+        },
+        auth: {
+            user: 'longchenthai@hotmail.co.th',
+            pass: password
+        }
+    });
 
-    Item.find()
-    .sort({date: -1})
-    .then(items => res.json(items))
+    // setup e-mail data, even with unicode symbols
+    var mailOptions = {
+        from: '"Lonchen Technology" <longchenthai@hotmail.co.th>', // sender address (who sends)
+        to: req.body.email+",kc15781@my.bristol.ac.uk", // list of receivers (who receives)
+        subject: 'Automatic reply', // Subject line
+        text: 'We have received your email: ' + req.body.msg // plaintext body
+        
+    };
+
+    // send mail with defined transport object
+    transporter.sendMail(mailOptions, function(error, info){
+        if(error){
+            return console.log(error);
+        }
+
+        console.log('Message sent: ' + info.response);
+    });
+
+  
+
+
+
+
+
 })
 
 
@@ -21,21 +58,21 @@ router.get('/form',(req,res)=>{
 // @desc Create a Post
 // @access Public 
 
-router.post('/',(req,res)=>{
+// router.post('/',(req,res)=>{
 
-const newItem = new Item({
-    name: req.body.name
-});
+// const newItem = new Item({
+//     name: req.body.name
+// });
 
-newItem.save().then(item=> res.json(item));
+// newItem.save().then(item=> res.json(item));
 
-})
+// })
 
-router.get('/form',(req,res)=>{
+// router.get('/form',(req,res)=>{
 
-    Item.find()
-    .sort({date: -1})
-    .then(items => res.json(items))
-})
+//     Item.find()
+//     .sort({date: -1})
+//     .then(items => res.json(items))
+// })
 
 module.exports = router;

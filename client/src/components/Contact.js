@@ -58,6 +58,7 @@ export default class Product extends Component {
         //prevent default action such as reloading the page
         e.preventDefault();
 
+
         if(this.state.email_validated === true && this.state.msg_validated === true){
 
         
@@ -66,8 +67,12 @@ export default class Product extends Component {
                 trigger: true
             })
 
+            const form_data ={
+                email: this.state.form_email,
+                msg: this.state.form_msg
+            }
 
-            axios.get('/api/api/form')
+            axios.post('/api/api/form',form_data)
             .then(res => {
                 console.log(res.data)
 

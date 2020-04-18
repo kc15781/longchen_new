@@ -3,14 +3,15 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path')
 const api= require('./routes/api/api');
-
+require('dotenv').config();
 const app= express();
 
 //Bodyparser Middleware
 app.use(bodyParser.json());
 
-//DB Config
-const db = require('./config/keys').mongoURI;
+const db = process.env.mongoURI;
+
+
 
 // Connect to Mongo 
 mongoose.connect(db,{ useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology:true })
