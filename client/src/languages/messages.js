@@ -54,6 +54,7 @@ export const messages = {
         factory:"工厂 ",
         open_day:"星期一至星期六",
         time_zone:"(泰国曼谷时间)",
+        open_time:"营业时间"
 
 
         
@@ -110,6 +111,7 @@ export const messages = {
         factory:"โรงงาน",
         open_day:"วันจันทร์ - วันเสาร์",
         time_zone:"(เวลาท้องถิ่นประเทศไทย)",
+        open_time:"เวลาทำการ"
  
     }
 };

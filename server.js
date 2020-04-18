@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path')
-const items= require('./routes/api/items');
+const api= require('./routes/api/api');
 
 const app= express();
 
@@ -18,7 +18,7 @@ mongoose.connect(db,{ useNewUrlParser: true, useCreateIndex: true, useUnifiedTop
 .catch(err => console.log(err));
 
 // user routes
-app.use('/api/items',items);
+app.use('/api/api',api);
 
 // serve static assets if in production
 if(process.env.NODE_ENV === 'production'){

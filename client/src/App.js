@@ -32,9 +32,9 @@ function App() {
  
                 <Switch>
                 <Route path="/" exact render={(props) => <Home {...props} locale={locale} />} />
-                <Route path="/Product" component={Product} />
-                <Route path="/Employment" component={Employment} />
-                <Route path="/Contact" render={(props) => <Contact {...props} locale={locale} />} />
+                <Route path="/Product" exact component={Product} />
+                <Route path="/Employment" exact component={Employment} />
+                <Route path="/Contact" exact render={(props) => <Contact {...props} locale={locale} />} />
                 <Route component={Error} />
                 </Switch>
                 <div className="bg_color2 pt-4 mt-5">

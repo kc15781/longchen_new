@@ -9,7 +9,7 @@ const Item = require('../../models/items');
 // @desc Get All Items
 // @access Public 
 
-router.get('/',(req,res)=>{
+router.get('/form',(req,res)=>{
 
     Item.find()
     .sort({date: -1})
@@ -31,5 +31,11 @@ newItem.save().then(item=> res.json(item));
 
 })
 
+router.get('/form',(req,res)=>{
+
+    Item.find()
+    .sort({date: -1})
+    .then(items => res.json(items))
+})
 
 module.exports = router;
