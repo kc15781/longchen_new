@@ -12,7 +12,7 @@ export const Bottom_component = (props) => {
      <div className="">
       <Row className="text-center justify-content-center align-items-center">
         <div className=" col-sm-12 col-xl-6  mb-5">
-          <div><Image src="./logo/logo.png" className="logo shadow_custom" fluid/></div>
+          <div><Image src={process.env.PUBLIC_URL + '/logo/logo.png'} className="logo shadow_custom" fluid/></div>
           <div className=" mt-4">
             <h3>< FormattedMessage id="bottom_heading" defaultMessage="Longchen Technology Co., Ltd. Thailand" /></h3>
             <div className="text-left ml-4 pl-4" style={{borderLeft:"solid red"}}>
