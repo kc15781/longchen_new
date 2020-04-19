@@ -10,7 +10,7 @@ export function Modal_component(props) {
 
     return (
     <>
-        <Modal show={props.trigger} onHide={handleClose}>
+        <Modal  show={props.trigger} onHide={handleClose}>
             <Modal.Header closeButton>
                 <Modal.Title>Notice</Modal.Title>
             </Modal.Header>
