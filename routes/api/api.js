@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 var nodemailer = require('nodemailer');
+var validator = require('validator');
 require('dotenv').config();
 const password = process.env.email_password;
 //Item Model 
@@ -11,41 +12,66 @@ const Item = require('../../models/items');
 // @access Public 
 
 router.post('/form',(req,res)=>{
-    console.log(req.body)
-    // Create the transporter with the required configuration for Outlook
-    // change the user and pass !
-    var transporter = nodemailer.createTransport({
-        host: "smtp.live.com", // hostname
-        secureConnection: false, // TLS requires secureConnection to be false
-        port: 587, // port for secure SMTP
-        tls: {
-        ciphers:'SSLv3'
-        },
-        auth: {
-            user: 'longchenthai@hotmail.co.th',
-            pass: password
+    
+
+    if(req.body.lang && req.body.msg && req.body.email && validator.isEmail(req.body.email)===true){
+        let msg="";
+        let title="";
+        if(req.body.lang==="en"){
+            msg="We have received your message";
+            title="Automatic reply";
         }
-    });
-
-    // setup e-mail data, even with unicode symbols
-    var mailOptions = {
-        from: '"Lonchen Technology" <longchenthai@hotmail.co.th>', // sender address (who sends)
-        to: req.body.email+",kc15781@my.bristol.ac.uk", // list of receivers (who receives)
-        subject: 'Automatic reply', // Subject line
-        text: 'We have received your email: ' + req.body.msg // plaintext body
-        
-    };
-
-    // send mail with defined transport object
-    transporter.sendMail(mailOptions, function(error, info){
-        if(error){
-            return console.log(error);
+        else if(req.body.lang==="zh"){
+            msg="我们已经收到您的信息";
+            title="自动回复";
+        }
+        else if(req.body.lang==="th"){
+            msg="เราได้รับข้อความของคุณแล้ว";
+            title="ตอบกลับอัตโนมัติ";
+        }
+        else{
+            next();
         }
 
-        console.log('Message sent: ' + info.response);
-    });
+        // Create the transporter with the required configuration for Outlook
+        // change the user and pass !
+        var transporter = nodemailer.createTransport({
+            host: "smtp.live.com", // hostname
+            secureConnection: false, // TLS requires secureConnection to be false
+            port: 587, // port for secure SMTP
+            tls: {
+            ciphers:'SSLv3'
+            },
+            auth: {
+                user: 'longchenthai@hotmail.co.th',
+                pass: password
+            }
+        });
 
-  
+        // setup e-mail data, even with unicode symbols
+        var mailOptions = {
+            from: '"Lonchen Technology" <longchenthai@hotmail.co.th>', // sender address (who sends)
+            to: req.body.email+",kc15781@my.bristol.ac.uk", // list of receivers (who receives)
+            subject: title, // Subject line
+            html: msg +': <br><br>' + req.body.msg // plaintext body
+            
+        };
+
+        // send mail with defined transport object
+        transporter.sendMail(mailOptions, function(error, info){
+            if(error){
+                res.json('invalid')
+                return console.log(error);
+            }
+
+            console.log('Message sent: ' + info.response);
+            res.json('valid')
+        });
+
+    }
+    else{
+        res.json('invalid')
+    }
 
 
 

@@ -54,7 +54,10 @@ export const messages = {
         factory:"工厂 ",
         open_day:"星期一至星期六",
         time_zone:"(泰国曼谷时间)",
-        open_time:"营业时间"
+        open_time:"营业时间",
+        form_title:"留言板",
+        form_msg:"留言",
+        form_submit:"发送"
 
 
         
@@ -111,7 +114,10 @@ export const messages = {
         factory:"โรงงาน",
         open_day:"วันจันทร์ - วันเสาร์",
         time_zone:"(เวลาท้องถิ่นประเทศไทย)",
-        open_time:"เวลาทำการ"
+        open_time:"เวลาทำการ",
+        form_title:"แสดงความคิดเห็น",
+        form_msg:"แสดงความคิดเห็น",
+        form_submit:"ส่ง"
  
     }
 };

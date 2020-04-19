@@ -21,7 +21,9 @@ export default class Product extends Component {
         email_validated: false,
         msg_validated: false,
         trigger:false,
-        modal_msg:""
+        modal_msg:"",
+        successful_msg:"The message is sent",
+        unsuccessful_msg:"Please fill out the form and check your email",
 
     }
 
@@ -33,14 +35,22 @@ export default class Product extends Component {
         if(prevProps.locale!=this.props.locale){
             if(this.props.locale=="en"){
                 this.setState({ clock_src: 'https://freesecure.timeanddate.com/clock/i788q8tc/n28/fs32/tct/pct/ftb/tt0/td1/th1/ta1/tb4',
-                clock_height:"80"
+                clock_height:"80",
+                successful_msg:"The message is sent",
+                unsuccessful_msg:"Please fill out the form and check your email"
             });
             }else if(this.props.locale=="zh"){
                 this.setState({ clock_src: 'https://freesecure.timeanddate.com/clock/i788q8tc/n28/tlcn8/fs32/tct/pct/ftb/tt0/td1/th1/ta1/tb4',
-                clock_height:"90" });
+                clock_height:"90",
+                successful_msg:"消息已发送",
+                unsuccessful_msg:"请填写表格并检查您的电子邮件"
+            });
             }else{
                 this.setState({ clock_src: 'https://freesecure.timeanddate.com/clock/i788q8tc/n28/tlth39/fs32/tct/pct/ftb/tt0/td1/th1/ta1/tb4',
-                clock_height:"100" });
+                clock_height:"100",
+                successful_msg:"ส่งข้อความแล้ว",
+                unsuccessful_msg:"กรุณากรอกแบบฟอร์มและตรวจสอบอีเมลของคุณ"
+            });
             }
         
         }
@@ -62,19 +72,31 @@ export default class Product extends Component {
         if(this.state.email_validated === true && this.state.msg_validated === true){
 
         
-            this.setState({
-                modal_msg: "The message is sent",
-                trigger: true
-            })
+
 
             const form_data ={
                 email: this.state.form_email,
-                msg: this.state.form_msg
+                msg: this.state.form_msg,
+                lang: this.props.locale
             }
 
             axios.post('/api/api/form',form_data)
             .then(res => {
-                console.log(res.data)
+              
+
+                if(res.data==="valid"){
+                    this.setState({
+                        modal_msg: this.state.successful_msg,
+                        trigger: true
+                    })
+                }
+                else{
+                    this.setState({
+                        modal_msg: this.state.unsuccessful_msg,
+                        trigger: true
+                    })
+
+                }
 
             })
             .catch((error) => {
@@ -84,7 +106,7 @@ export default class Product extends Component {
 
         }else{
             this.setState({
-                modal_msg: "Please fill out the form",
+                modal_msg: this.state.unsuccessful_msg,
                 trigger: true
             })
         }
@@ -129,7 +151,7 @@ export default class Product extends Component {
             <Container className="bg_color3 mt-5 text-center py-5">
 
             <Form validated={true}>
-            <h1 style={{borderBottom:"solid white", textAlign:'center'}} className="mb-3 pb-3">Form</h1>
+            <h1 style={{borderBottom:"solid white", textAlign:'center'}} className="mb-3 pb-3">< FormattedMessage id="form_title" defaultMessage="Comment Form" /></h1>
             <Form.Group controlId="formBasicEmail">
                 <div className="text-left my-3"><Form.Label>Email</Form.Label></div>
                 <Form.Control required type="email" placeholder="Enter email" onChange={this.form_onChange}/>
@@ -137,13 +159,13 @@ export default class Product extends Component {
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
-                <div className="text-left my-3"><Form.Label>Message</Form.Label></div>
+                <div className="text-left my-3"><Form.Label>< FormattedMessage id="form_msg" defaultMessage="Message" /></Form.Label></div>
 
                 <Form.Control required as="textarea" placeholder="Message" onChange={this.form_onChange}/>
             </Form.Group>
 
             <Button variant="primary" type="submit" onClick={this.onSubmit}>
-                Submit
+            < FormattedMessage id="form_submit" defaultMessage="Submit" />
             </Button>
             </Form>
 

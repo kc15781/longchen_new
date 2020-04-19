@@ -21,6 +21,7 @@ mongoose.connect(db,{ useNewUrlParser: true, useCreateIndex: true, useUnifiedTop
 // user routes
 app.use('/api/api',api);
 
+
 // serve static assets if in production
 if(process.env.NODE_ENV === 'production'){
     // set static folder
@@ -30,6 +31,11 @@ if(process.env.NODE_ENV === 'production'){
       res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
     })
 }
+
+app.use(function (req, res) {
+  res.status(500).send("error")
+})
+
 
 const port = process.env.PORT || 5000;
 
