@@ -57,7 +57,10 @@ export const messages = {
         open_time:"营业时间",
         form_title:"留言板",
         form_msg:"留言",
-        form_submit:"发送"
+        form_submit:"发送",
+        Applying:"申请",
+        Assistant:"助理",
+        Salesperson:"业务"
 
 
         
@@ -117,7 +120,10 @@ export const messages = {
         open_time:"เวลาทำการ",
         form_title:"แสดงความคิดเห็น",
         form_msg:"แสดงความคิดเห็น",
-        form_submit:"ส่ง"
+        form_submit:"ส่ง",
+        Applying:"สมัคร",
+        Assistant:"ผู้ช่วย",
+        Salesperson:"พนักงานขาย"
  
     }
 };
