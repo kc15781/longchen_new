@@ -24,9 +24,9 @@ export const Bottom_component = (props) => {
           </div>
           <Row className=" ml-1">
           
-          <a target="_blank" href="https://www.facebook.com/lonchentechnology/?fref=ts"><FontAwesomeIcon className="icon ml-5" icon={faFacebook} /></a>
-          <a target="_blank" href="https://www.youtube.com/channel/UCupIo_KRbuer49IVttC4TJw"><FontAwesomeIcon className="icon mx-4" icon={faYoutube} /></a>
-          <a target="_blank" href="https://plus.google.com/103007775948380259681"><FontAwesomeIcon className="icon" icon={faGooglePlus} /></a>
+          <a target="_blank" href="https://www.facebook.com/lonchentechnology/?fref=ts"><FontAwesomeIcon className=" ml-5" icon={faFacebook} /></a>
+          <a target="_blank" href="https://www.youtube.com/channel/UCupIo_KRbuer49IVttC4TJw"><FontAwesomeIcon className=" mx-4" icon={faYoutube} /></a>
+          <a target="_blank" href="https://plus.google.com/103007775948380259681"><FontAwesomeIcon className="" icon={faGooglePlus} /></a>
           </Row>
         </div>
         <div className=" col-sm-12 col-xl-6 mb-5">

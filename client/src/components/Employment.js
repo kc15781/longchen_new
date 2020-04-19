@@ -1,35 +1,28 @@
 import React, { Component } from 'react';
-
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFileSignature , faDollarSign, faBook} from '@fortawesome/free-solid-svg-icons'
+import { Row, Col, Container } from 'react-bootstrap';
+import './Stylesheet/Stylesheet_employment.css'
 export default class Employment extends Component {
     constructor(props) {
         super(props);
 
 
-        this.state = { exercises: [] };
     }
 
 
 
     render() {
         return (
-            <div>
-                <h3>Logged Exercises</h3>
-                <table className="table">
-                    <thead className="thead-light">
-                        <tr>
-                            <th>Username</th>
-                            <th>Description</th>
-                            <th>Duration</th>
-                            <th>Date</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-      
-                    </tbody>
-                </table>
-            </div>
+            <>
+                <Container className="mt-5">
+                    <Row>
+                        <Col><FontAwesomeIcon className=" " icon={faFileSignature} /></Col>
+                        <Col><FontAwesomeIcon className=" " icon={faDollarSign} /></Col>
+                        <Col><FontAwesomeIcon className=" " icon={faBook} /></Col>
+                    </Row>
+                </Container>
+            </>
         )
     }
 }
