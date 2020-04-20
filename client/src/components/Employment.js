@@ -17,8 +17,6 @@ export default class Employment extends Component {
 
             trigger:false,
             modal_msg:" ",
-
-    
         }
 
     }

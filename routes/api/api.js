@@ -5,7 +5,7 @@ var validator = require('validator');
 require('dotenv').config();
 const password = process.env.email_password;
 //Item Model 
-const Item = require('../../models/items');
+const Products = require('../../models/products_model');
 
 // @route GET api/items
 // @desc Get All Items
@@ -79,6 +79,40 @@ router.post('/form',(req,res)=>{
 
 })
 
+router.post('/products',(req,res)=>{
+    
+
+
+
+    const promiseA = new Promise( (resolve, reject) => {
+        
+            Products.distinct("product_collection")
+            .sort()
+            .then(products => { resolve(products);})
+
+
+
+    });
+    const promiseB = new Promise( (resolve, reject) => {
+        
+        Products.find({}, {_id:0})
+        .sort({product_collection: 1})
+        .then(products => {
+             
+             resolve(products);
+             
+        })
+
+
+
+    });
+
+    Promise.all([promiseA, promiseB]).then(function(values) {
+        res.json(values)
+      });
+
+
+})
 
 // @route Post api/items
 // @desc Create a Post
