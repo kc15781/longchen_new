@@ -49,6 +49,7 @@ export default class Product extends Component {
         else if(this.props.locale=="zh"){return(this.state.product[index].product_collection_zh)}
         }
 
+
     render() {
 
         
@@ -69,7 +70,7 @@ export default class Product extends Component {
                                         return (    <>     
 
                                                      {this.state.product[index_product].product_collection_eng==value && 
-                                                            <Link className="product_img"  to="/Product_detail"><div className="my-5 col-auto">
+                                                            <Link className="product_img"  to="/Product_detail" ><div className="my-5 col-auto" onClick={() => this.props.change_product(this.state.product[index_product].product_title_eng)}>
                                                                 <Image className="shadow_custom mb-3" src={"./pictures/product_img/product_page/"+this.state.product[index_product].image} style={{height:"250px"}} />
                                                                 <h2 className="text-center">{this.product_title(index_product)}</h2>
                                                             </div></Link>}

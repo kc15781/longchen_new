@@ -112,14 +112,14 @@ router.get('/products',(req,res)=>{
 
 })
 
-router.get('/detail',(req,res)=>{
+router.post('/detail',(req,res)=>{
     
 
 
-
+console.log(req.body.product)
     const promiseA = new Promise( (resolve, reject) => {
         
-            Details.find({"product_title":"SupaMop I"}, {_id:0})
+            Details.find({"product_title":req.body.product}, {_id:0})
             .then(detail => {resolve(detail);})
 
 

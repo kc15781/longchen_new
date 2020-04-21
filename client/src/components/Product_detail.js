@@ -13,22 +13,25 @@ export default class Product extends Component {
         }
                      };
         this.detail();
-console.log(props.locale)
+
 
     }
 
 
 
     detail() {
+        const product_data ={
+            product: this.props.product
+        }
 
-            axios.get('/api/api/detail')
+            axios.post('/api/api/detail',product_data)
             .then(res => {
     
               this.setState({
                 detail: res.data[0]
             })
 
-            console.log(Number(this.state.detail.col))
+     
         
             })
             .catch((error) => {
