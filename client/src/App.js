@@ -18,13 +18,11 @@ function App() {
 
 
     const [locale, setLocale] = useState("en");
-    const [product, setProduct] = useState("Polish Mop");
+
     function change_locale(new_locale) {
         setLocale(new_locale);
     }
-    function change_product(new_product) {
-        setProduct(new_product);
-    }
+
     return (
         <IntlProvider locale={locale} messages={messages[locale]}>
     
@@ -34,10 +32,10 @@ function App() {
  
                 <Switch>
                 <Route path="/" exact render={(props) => <Home {...props} locale={locale} />} />
-                <Route path="/Product" exact render={(props) => <Product {...props} locale={locale} change_product={change_product} />} />
+                <Route path="/Product" exact render={(props) => <Product {...props} locale={locale}  />} />
                 <Route path="/Employment" exact component={Employment} />
                 <Route path="/Contact" exact render={(props) => <Contact {...props} locale={locale} />} />
-                <Route path="/Product_detail" exact render={(props) => <Product_detail {...props} locale={locale} product={product}/>} />
+                <Route path="/Product_detail" exact render={(props) => <Product_detail {...props} locale={locale} />} />
                 <Route component={Error} />
                 </Switch>
                 <div className="bg_color2 pt-4 mt-5">

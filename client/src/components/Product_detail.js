@@ -20,8 +20,15 @@ export default class Product extends Component {
 
 
     detail() {
+        let search = window.location.search;
+        let params = new URLSearchParams(search);
+        let product = params.get('product');
+
+        console.log(product);
+
+
         const product_data ={
-            product: this.props.product
+            product: product
         }
 
             axios.post('/api/api/detail',product_data)

@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const DetailsSchema = new Schema({
     product_title: {
     type: String,
-    required: true},
+    required: true,
+    trim:true},
 
     table_eng: {
     type: Array,
