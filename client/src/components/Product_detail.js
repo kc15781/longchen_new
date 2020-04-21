@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Container, Image } from 'react-bootstrap';
+import { Row, Col, Container, Image, Table } from 'react-bootstrap';
 import './Stylesheet/Stylesheet_product.css'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -15,27 +15,7 @@ console.log(props.locale)
 
     }
 
-    componentDidMount(){
-        this.product()
-    }
 
-
-    product() {
-
-            axios.post('/api/api/products')
-            .then(res => {
-              
-              this.setState({
-                product_collection: res.data[0],
-                product:res.data[1]
-            })
-          
-
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-    }
 
 
 
@@ -48,33 +28,38 @@ console.log(props.locale)
         return (
 
             <div>
-                
-                {this.state.product_collection.map((value, index) => {
-                    return (         
-                            <Container >
-                                <Row >
+              <Container className="mt-5">
+                <Table striped bordered hover>
+                <thead>
+                    <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>1</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    </tr>
+                    <tr>
+                    <td>2</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    </tr>
+                    <tr>
+                    <td>3</td>
+                    <td colSpan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                    </tr>
+                </tbody>
+                </Table>
 
-                                <h1 className="my-5 col-12">{this.state.product_collection[index]}</h1>
-
-
-                                    {this.state.product.map((value_product, index_product) => {
-                                        return (    <>     
-
-                                                     {this.state.product[index_product].product_collection_eng==value && 
-                                                            <Link className="product_img"  to="/"><div className="my-5 col-auto">
-                                                                <Image className="shadow_custom mb-3" src={"./pictures/product_img/product_page/"+this.state.product[index_product].image} style={{height:"250px"}} />
-                                                                <h2 className="text-center">{this.state.product[index_product].product_title_eng}</h2>
-                                                            </div></Link>}
-                                                    </>
-                                                )
-                                    })}
-
-                                </Row>
-                            </Container>
-                        )
-                })}
-
-                
+              </Container>    
             </div>
 
             )

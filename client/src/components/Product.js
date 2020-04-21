@@ -22,7 +22,7 @@ export default class Product extends Component {
 
     product() {
 
-            axios.post('/api/api/products')
+            axios.get('/api/api/products')
             .then(res => {
               
               this.setState({
