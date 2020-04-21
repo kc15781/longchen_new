@@ -50,7 +50,9 @@ export default class Product extends Component {
 
 
     render() {
+        // need a title
 
+        // need to add carousel
 
 
 
@@ -98,5 +100,12 @@ export default class Product extends Component {
             </div>
 
             )
+
+
+
+    // need to add 3d model
+
+
+
     }
 }
