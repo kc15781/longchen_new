@@ -7,8 +7,12 @@ const DetailsSchema = new Schema({
     required: true},
 
     table_eng: {
-    type: String,
+    type: Array,
     required: true},
+
+    col: {
+        type: String,
+        required: true},
 
 });
 

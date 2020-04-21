@@ -119,28 +119,16 @@ router.get('/detail',(req,res)=>{
 
     const promiseA = new Promise( (resolve, reject) => {
         
-            Details.distinct("product_collection_eng")
-            .sort()
-            .then(products => { resolve(products);})
+            Details.find({"product_title":"SupaMop I"}, {_id:0})
+            .then(detail => {resolve(detail);})
 
 
 
     });
-    const promiseB = new Promise( (resolve, reject) => {
+
+
+    promiseA.then(function(values) {
         
-        Details.find({}, {_id:0})
-        .sort({product_collection_eng: 1})
-        .then(products => {
-             
-             resolve(products);
-             
-        })
-
-
-
-    });
-
-    Promise.all([promiseA, promiseB]).then(function(values) {
         res.json(values)
       });
 
