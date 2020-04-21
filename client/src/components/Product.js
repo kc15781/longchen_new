@@ -19,19 +19,6 @@ export default class Product extends Component {
         this.product()
 
     }
-    componentDidUpdate(prevProps) {
-        if(prevProps.locale!=this.props.locale){
-            if(this.props.locale=="en"){
-                this.setState({ map_directory: '.png' });
-            }else if(this.props.locale=="zh"){
-                this.setState({ map_directory: '_chinese.png' });
-            }else{
-                this.setState({ map_directory: '_thai.png' });
-            }
-        
-        }
-
-    }
 
     product() {
 
