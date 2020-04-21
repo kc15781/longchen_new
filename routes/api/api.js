@@ -86,7 +86,7 @@ router.post('/products',(req,res)=>{
 
     const promiseA = new Promise( (resolve, reject) => {
         
-            Products.distinct("product_collection")
+            Products.distinct("product_collection_eng")
             .sort()
             .then(products => { resolve(products);})
 
@@ -96,7 +96,7 @@ router.post('/products',(req,res)=>{
     const promiseB = new Promise( (resolve, reject) => {
         
         Products.find({}, {_id:0})
-        .sort({product_collection: 1})
+        .sort({product_collection_eng: 1})
         .then(products => {
              
              resolve(products);

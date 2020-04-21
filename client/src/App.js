@@ -7,7 +7,7 @@ import { NavBar } from "./components/shared_components/navbar.component"
 import Home from "./components/Home";
 import Error from "./components/404";
 import Product from "./components/Product";
-
+import Product_detail from "./components/Product_detail";
 import Employment from "./components/Employment";
 import Contact from "./components/Contact";
 import { messages } from "./languages/messages";
@@ -32,9 +32,10 @@ function App() {
  
                 <Switch>
                 <Route path="/" exact render={(props) => <Home {...props} locale={locale} />} />
-                <Route path="/Product" exact component={Product} />
+                <Route path="/Product" exact render={(props) => <Product {...props} locale={locale} />} />
                 <Route path="/Employment" exact component={Employment} />
                 <Route path="/Contact" exact render={(props) => <Contact {...props} locale={locale} />} />
+                <Route path="/Product_detail" exact render={(props) => <Product_detail {...props} locale={locale} />} />
                 <Route component={Error} />
                 </Switch>
                 <div className="bg_color2 pt-4 mt-5">

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ProductsSchema = new Schema({
-    product_title: {
+    product_title_eng: {
     type: String,
     required: true},
 
@@ -10,7 +10,7 @@ const ProductsSchema = new Schema({
     type: String,
     required: true},
 
-    product_collection: {
+    product_collection_eng: {
     type: String,
     required: true},
 

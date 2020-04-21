@@ -11,27 +11,14 @@ export default class Product extends Component {
                        product:[]
                      };
 
-
+console.log(props.locale)
 
     }
 
     componentDidMount(){
         this.product()
-
     }
-    componentDidUpdate(prevProps) {
-        if(prevProps.locale!=this.props.locale){
-            if(this.props.locale=="en"){
-                this.setState({ map_directory: '.png' });
-            }else if(this.props.locale=="zh"){
-                this.setState({ map_directory: '_chinese.png' });
-            }else{
-                this.setState({ map_directory: '_thai.png' });
-            }
-        
-        }
 
-    }
 
     product() {
 
@@ -50,21 +37,13 @@ export default class Product extends Component {
             })
     }
 
-    product_title(index_product){
-    if(this.props.locale=="en"){return(this.state.product[index_product].product_title_eng)}
-    else if(this.props.locale=="th"){return(this.state.product[index_product].product_title_th)}
-    else if(this.props.locale=="zh"){return(this.state.product[index_product].product_title_zh)}
-    }
 
-    product_collection(index){
-        if(this.props.locale=="en"){return(this.state.product[index].product_collection_eng)}
-        else if(this.props.locale=="th"){return(this.state.product[index].product_collection_th)}
-        else if(this.props.locale=="zh"){return(this.state.product[index].product_collection_zh)}
-        }
+
 
     render() {
 
-        
+
+
 
         return (
 
@@ -75,16 +54,16 @@ export default class Product extends Component {
                             <Container >
                                 <Row >
 
-                                <h1 className="my-5 col-12">{this.product_collection(index)}</h1>
+                                <h1 className="my-5 col-12">{this.state.product_collection[index]}</h1>
 
 
                                     {this.state.product.map((value_product, index_product) => {
                                         return (    <>     
 
                                                      {this.state.product[index_product].product_collection_eng==value && 
-                                                            <Link className="product_img"  to="/Product_detail"><div className="my-5 col-auto">
+                                                            <Link className="product_img"  to="/"><div className="my-5 col-auto">
                                                                 <Image className="shadow_custom mb-3" src={"./pictures/product_img/product_page/"+this.state.product[index_product].image} style={{height:"250px"}} />
-                                                                <h2 className="text-center">{this.product_title(index_product)}</h2>
+                                                                <h2 className="text-center">{this.state.product[index_product].product_title_eng}</h2>
                                                             </div></Link>}
                                                     </>
                                                 )

@@ -1,0 +1,13 @@
+.product_img:hover {
+
+    opacity:0.8;
+    color:black;
+    text-decoration: none;
+}
+
+.product_img {
+
+
+    color:black;
+    text-decoration: none;
+}
