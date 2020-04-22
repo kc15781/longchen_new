@@ -4,15 +4,20 @@ import './Stylesheet/Stylesheet_product.css'
 import axios from 'axios';
 import { FormattedMessage} from 'react-intl';
 import { Link,Redirect } from 'react-router-dom';
+import {Carousel_component} from './shared_components/carousel.component.js'
 export default class Product extends Component {
     constructor(props) {
         super(props);
+        this.src_company=['1', '2','3'];
+
+        this.company_directory="./pictures/product_img/SupaMop_I/";
 
         this.state = { detail:{
             table_eng:[[""],[""]],
             table_th:[[""],[""]],
             table_zh:[[""],[""]],
-            col:1
+            col:1,
+            img_path:""
         }
                      };
         this.detail();
@@ -29,7 +34,7 @@ export default class Product extends Component {
         let product = params.get('product');
         
 
-        if(product){
+        
         const product_data ={
             product: product
         }
@@ -39,14 +44,15 @@ export default class Product extends Component {
     
               this.setState({
                 detail: res.data[0]
+                
             })
 
-     
+            //if nothing found need to a code to redirect the page
         
             })
             .catch((error) => {
                 console.log(error);
-            })}
+            })
 
     }
 
@@ -56,10 +62,16 @@ export default class Product extends Component {
         else if(this.props.locale=="th"){return(this.state.detail.table_th[i][ii])}
         else if(this.props.locale=="zh"){return(this.state.detail.table_zh[i][ii])}
         }
+    title(){
+        if(this.props.locale=="en"){return(this.state.detail.product_title_eng)}
+        else if(this.props.locale=="th"){return(this.state.detail.product_title_th)}
+        else if(this.props.locale=="zh"){return(this.state.detail.product_title_zh)}
+        }    
+
 
 
     render() {
-        // need a title
+        
 
         // need to add carousel
 
@@ -68,6 +80,12 @@ export default class Product extends Component {
         return (
 
             <div>
+              <Container className="mt-5">
+                  <h1>{this.title()}</h1>
+              </Container>
+
+
+
               <Container className="mt-5">
                 <Table striped bordered hover>
                 <thead>
@@ -106,6 +124,15 @@ export default class Product extends Component {
                 </Table>
 
               </Container>    
+
+
+              <Container className="mt-5">
+
+                 <Carousel_component  src={this.src_company} title={[]} directory={this.company_directory}/>
+
+              </Container>
+
+
             </div>
 
             )

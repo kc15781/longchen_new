@@ -14,10 +14,12 @@ import { messages } from "./languages/messages";
 import './components/Stylesheet/Stylesheet.css';
 import { Row, Col, Container } from 'react-bootstrap';
 
-function App() {
+function App(props) {
 
 
     const [locale, setLocale] = useState("en");
+
+
 
     function change_locale(new_locale) {
 

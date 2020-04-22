@@ -50,8 +50,6 @@ const Animation_company = () => {
 
 export const NavBar = (props) => {
 
-    
-
 
     return (
         <div>
