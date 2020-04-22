@@ -70,10 +70,10 @@ export default class Product extends Component {
                                         return (    <>     
 
                                                      {this.state.product[index_product].product_collection_eng==value && 
-                                                            <Link className="product_img"  to={"/Product_detail?product="+this.state.product[index_product].product_title_eng} ><div className="my-5 col-auto" >
-                                                                <Image className="shadow_custom mb-3" src={"./pictures/product_img/product_page/"+this.state.product[index_product].image} style={{height:"250px"}} />
+                                                            <Link className="product_img col-12 col-sm-8 col-md-6 col-lg-4"  to={"/Product_detail?product="+this.state.product[index_product].product_title_eng} >
+                                                                <Image className="shadow_custom mb-3" src={"./pictures/product_img/product_page/"+this.state.product[index_product].image} fluid />
                                                                 <h2 className="text-center">{this.product_title(index_product)}</h2>
-                                                            </div></Link>}
+                                                            </Link>}
                                                     </>
                                                 )
                                     })}

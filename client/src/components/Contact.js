@@ -16,8 +16,6 @@ export default class Product extends Component {
     this.state = {
         form_email: '',
         form_msg: '',
-        clock_src: 'https://freesecure.timeanddate.com/clock/i788q8tc/n28/fs32/tct/pct/ftb/tt0/td1/th1/ta1/tb4',
-        clock_height:"80",
         email_validated: false,
         msg_validated: false,
         trigger:false,
@@ -34,20 +32,17 @@ export default class Product extends Component {
 
         if(prevProps.locale!=this.props.locale){
             if(this.props.locale=="en"){
-                this.setState({ clock_src: 'https://freesecure.timeanddate.com/clock/i788q8tc/n28/fs32/tct/pct/ftb/tt0/td1/th1/ta1/tb4',
-                clock_height:"80",
+                this.setState({ 
                 successful_msg:"The message is sent",
                 unsuccessful_msg:"Please fill out the form and check your email"
             });
             }else if(this.props.locale=="zh"){
-                this.setState({ clock_src: 'https://freesecure.timeanddate.com/clock/i788q8tc/n28/tlcn8/fs32/tct/pct/ftb/tt0/td1/th1/ta1/tb4',
-                clock_height:"90",
+                this.setState({ 
                 successful_msg:"消息已发送",
                 unsuccessful_msg:"请填写表格并检查您的电子邮件"
             });
             }else{
-                this.setState({ clock_src: 'https://freesecure.timeanddate.com/clock/i788q8tc/n28/tlth39/fs32/tct/pct/ftb/tt0/td1/th1/ta1/tb4',
-                clock_height:"100",
+                this.setState({ 
                 successful_msg:"ส่งข้อความแล้ว",
                 unsuccessful_msg:"กรุณากรอกแบบฟอร์มและตรวจสอบอีเมลของคุณ"
             });
@@ -143,7 +138,7 @@ export default class Product extends Component {
                 <p>8:00am - 5:00pm</p>
                 <p>< FormattedMessage id="open_day" defaultMessage="Monday - Saturday" /></p>
                 <p>ICT UTC+7 < FormattedMessage id="time_zone" defaultMessage="(Bangkok Thailand Time)" /></p>
-                <iframe className="shadow_custom" src={this.state.clock_src} frameborder="0" width="468" height={this.state.clock_height}></iframe>
+               
 
             </Container>
 
