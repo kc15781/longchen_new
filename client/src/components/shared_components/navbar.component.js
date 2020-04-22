@@ -69,9 +69,9 @@ export const NavBar = (props) => {
                 </Nav>
                 <Nav>
                     <Nav className="nav-link"></Nav>
-                    <Nav><Link to="#" onClick={() => props.change_locale("en")} className="nav-link">< FormattedMessage id="nav_Lang" defaultMessage="English" /></Link></Nav>
-                    <Nav><Link to="#" onClick={() => props.change_locale("zh")} className="nav-link">< FormattedMessage id="nav_Lang" defaultMessage="中文" /></Link></Nav>
-                    <Nav><Link to="#" onClick={() => props.change_locale("th")} className="nav-link">< FormattedMessage id="nav_Lang" defaultMessage="ภาษาไทย" /></Link></Nav>
+                    <Nav ><div onClick={() => props.change_locale("en")} className="nav-link cursor">< FormattedMessage id="nav_Lang" defaultMessage="English" /></div></Nav>
+                    <Nav><div onClick={() => props.change_locale("zh")} className="nav-link cursor">< FormattedMessage id="nav_Lang" defaultMessage="中文" /></div></Nav>
+                    <Nav><div onClick={() => props.change_locale("th")} className="nav-link cursor">< FormattedMessage id="nav_Lang" defaultMessage="ภาษาไทย" /></div></Nav>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

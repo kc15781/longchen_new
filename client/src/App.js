@@ -20,7 +20,9 @@ function App() {
     const [locale, setLocale] = useState("en");
 
     function change_locale(new_locale) {
+
         setLocale(new_locale);
+        
     }
 
     return (

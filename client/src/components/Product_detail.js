@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import { Row, Col, Container, Image, Table } from 'react-bootstrap';
 import './Stylesheet/Stylesheet_product.css'
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { FormattedMessage} from 'react-intl';
+import { Link,Redirect } from 'react-router-dom';
 export default class Product extends Component {
     constructor(props) {
         super(props);
 
         this.state = { detail:{
             table_eng:[[""],[""]],
+            table_th:[[""],[""]],
+            table_zh:[[""],[""]],
             col:1
         }
                      };
@@ -17,16 +20,16 @@ export default class Product extends Component {
 
     }
 
+    
 
 
     detail() {
         let search = window.location.search;
         let params = new URLSearchParams(search);
         let product = params.get('product');
+        
 
-        console.log(product);
-
-
+        if(product){
         const product_data ={
             product: product
         }
@@ -43,10 +46,16 @@ export default class Product extends Component {
             })
             .catch((error) => {
                 console.log(error);
-            })
+            })}
+
     }
 
 
+    tb_content(i,ii){
+        if(this.props.locale=="en"){return(this.state.detail.table_eng[i][ii])}
+        else if(this.props.locale=="th"){return(this.state.detail.table_th[i][ii])}
+        else if(this.props.locale=="zh"){return(this.state.detail.table_zh[i][ii])}
+        }
 
 
     render() {
@@ -63,8 +72,8 @@ export default class Product extends Component {
                 <Table striped bordered hover>
                 <thead>
                     <tr>
-                    <th >{this.state.detail.table_eng[0][0]}</th>
-                    <th colspan={Number(this.state.detail.col)+1-this.state.detail.table_eng[0].length}>{this.state.detail.table_eng[0][1]}</th>
+                    <th >{this.tb_content(0,0)}</th>
+                    <th colspan={Number(this.state.detail.col)+1-this.state.detail.table_eng[0].length}>{this.tb_content(0,1)}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -77,11 +86,11 @@ export default class Product extends Component {
                                         return (    <>     
 
                                                         {index1!=0 &&
-                                                        <td colspan={Number(this.state.detail.col)+1-this.state.detail.table_eng[index].length}>{this.state.detail.table_eng[index][index1]}</td>
+                                                        <td colspan={Number(this.state.detail.col)+1-this.state.detail.table_eng[index].length}>{this.tb_content(index,index1)}</td>
                                                         }
 
                                                         {index1==0 &&
-                                                        <td>{this.state.detail.table_eng[index][index1]}</td>
+                                                        <td>{this.tb_content(index,index1)}</td>
                                                         }
                                                     </>
                                                 )
@@ -91,7 +100,7 @@ export default class Product extends Component {
                     })}
                     
                     <tr>
-                    <td colspan={Number(this.state.detail.col)}>If you wish to purchase or you have any questions, please <Link to="/Contact">contact us</Link></td>
+                    <td colspan={Number(this.state.detail.col)}>< FormattedMessage id="product_5" defaultMessage="If you wish to purchase or you have any questions, please " /><Link to="/Contact">< FormattedMessage id="contact_link" defaultMessage="contact us" /></Link></td>
                     </tr>
                 </tbody>
                 </Table>

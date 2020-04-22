@@ -119,7 +119,7 @@ router.post('/detail',(req,res)=>{
 console.log(req.body.product)
     const promiseA = new Promise( (resolve, reject) => {
         
-            Details.find({"product_title":req.body.product}, {_id:0})
+            Details.find({"product_title_eng":req.body.product}, {_id:0})
             .then(detail => {resolve(detail);})
 
 

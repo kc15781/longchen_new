@@ -5,6 +5,7 @@ import { Row, Col, Container } from 'react-bootstrap';
 import { Modal_component } from "./shared_components/modal.component"
 import { FormattedMessage} from 'react-intl';
 import { Link } from 'react-router-dom';
+import './Stylesheet/Stylesheet_employment.css'
 export default class Employment extends Component {
     constructor(props) {
         super(props);
@@ -88,15 +89,15 @@ export default class Employment extends Component {
             <>
                 <Container className="mt-5 text-center">
                     <Row > 
-                        <Col className="mt-5 " id="kai" onClick={this.onClick_apply}>
+                        <Col className="mt-5 cursor" onClick={this.onClick_apply}>
                         <FontAwesomeIcon  style={{width:"250px", height:"250px"}}  icon={faFileSignature} />
                         <h2>< FormattedMessage id="Applying" defaultMessage="Applying" /></h2>
                         </Col>
-                        <Col className="mt-5 " onClick={this.onClick_assistant}>
+                        <Col className="mt-5 cursor" onClick={this.onClick_assistant}>
                         <FontAwesomeIcon  style={{width:"250px", height:"250px"}} icon={faDollarSign} />
                         <h2>< FormattedMessage id="Assistant" defaultMessage="Assistant" /></h2>
                         </Col>
-                        <Col className="mt-5" onClick={this.onClick_sales}>
+                        <Col className="mt-5 cursor" onClick={this.onClick_sales}>
                         <FontAwesomeIcon  style={{width:"250px", height:"250px"}} icon={faBook} />
                         <h2>< FormattedMessage id="Salesperson" defaultMessage="Salesperson" /></h2>
                         </Col>
