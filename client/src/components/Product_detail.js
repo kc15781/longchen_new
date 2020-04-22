@@ -86,8 +86,10 @@ export default class Product extends Component {
 
 
 
-              <Container className="mt-5">
-                <Table striped bordered hover>
+              <Container className="mt-5 break">
+                <Row>
+                <div className="col-12">
+                <Table striped bordered hover >
                 <thead>
                     <tr>
                     <th >{this.tb_content(0,0)}</th>
@@ -104,11 +106,11 @@ export default class Product extends Component {
                                         return (    <>     
 
                                                         {index1!=0 &&
-                                                        <td colspan={Number(this.state.detail.col)+1-this.state.detail.table_eng[index].length}>{this.tb_content(index,index1)}</td>
+                                                        <td  colspan={Number(this.state.detail.col)+1-this.state.detail.table_eng[index].length}>{this.tb_content(index,index1)}</td>
                                                         }
 
                                                         {index1==0 &&
-                                                        <td>{this.tb_content(index,index1)}</td>
+                                                        <td >{this.tb_content(index,index1)}</td>
                                                         }
                                                     </>
                                                 )
@@ -118,18 +120,22 @@ export default class Product extends Component {
                     })}
                     
                     <tr>
-                    <td colspan={Number(this.state.detail.col)}>< FormattedMessage id="product_5" defaultMessage="If you wish to purchase or you have any questions, please " /><Link to="/Contact">< FormattedMessage id="contact_link" defaultMessage="contact us" /></Link></td>
+                    <td  colspan={Number(this.state.detail.col)}>< FormattedMessage id="product_5" defaultMessage="If you wish to purchase or you have any questions, please " /><Link to="/Contact">< FormattedMessage id="contact_link" defaultMessage="contact us" /></Link></td>
                     </tr>
                 </tbody>
                 </Table>
+                </div>
+                </Row>
 
               </Container>    
 
 
               <Container className="mt-5">
+                 <Row>
                  <div className="mx-auto col-12 col-md-10">
                  <Carousel_component src={this.src_company} title={[]} directory={this.company_directory}/>
                  </div>
+                 </Row> 
               </Container>
 
 

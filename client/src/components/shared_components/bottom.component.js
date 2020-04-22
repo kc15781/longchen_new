@@ -12,8 +12,8 @@ export const Bottom_component = (props) => {
      <div className="">
       <Row className="text-center justify-content-center align-items-center">
         <div className=" col-sm-12 col-xl-6  mb-5">
-          <div><Image src={process.env.PUBLIC_URL + '/logo/logo.png'} className="logo shadow_custom" fluid/></div>
-          <div className=" mt-4">
+          <div className="col-9 col-md-6 col-lg-4 col-xl-6  mx-auto"><Image src={process.env.PUBLIC_URL + '/logo/logo.png'} className=" shadow_custom" fluid/></div>
+          <div className=" mt-4 break" >
             <h3>< FormattedMessage id="bottom_heading" defaultMessage="Longchen Technology Co., Ltd. Thailand" /></h3>
             <div className="text-left ml-4 pl-4" style={{borderLeft:"solid red"}}>
             <h5>Tel: +66 (0)38190623</h5>
@@ -24,9 +24,9 @@ export const Bottom_component = (props) => {
           </div>
           <Row className=" ml-1">
           
-          <a target="_blank" href="https://www.facebook.com/lonchentechnology/?fref=ts"><FontAwesomeIcon className=" ml-5" icon={faFacebook} /></a>
-          <a target="_blank" href="https://www.youtube.com/channel/UCupIo_KRbuer49IVttC4TJw"><FontAwesomeIcon className=" mx-4" icon={faYoutube} /></a>
-          <a target="_blank" href="https://plus.google.com/103007775948380259681"><FontAwesomeIcon className="" icon={faGooglePlus} /></a>
+          <div className="col-3 col-sm-2 col-md-1 col-xl-2"><a target="_blank" href="https://www.facebook.com/lonchentechnology/?fref=ts"><FontAwesomeIcon className="" icon={faFacebook} /></a></div>
+          <div className="col-3 col-sm-2 col-md-1 col-xl-2" ><a target="_blank" href="https://www.youtube.com/channel/UCupIo_KRbuer49IVttC4TJw"><FontAwesomeIcon className="" icon={faYoutube} /></a></div>
+          <div className="col-3 col-sm-2 col-md-1 col-xl-2"><a target="_blank" href="https://plus.google.com/103007775948380259681"><FontAwesomeIcon className="" icon={faGooglePlus} /></a></div>
           </Row>
         </div>
         <div className=" col-sm-12 col-xl-6 mb-5">
