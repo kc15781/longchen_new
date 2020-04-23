@@ -18,7 +18,8 @@ export default class Product extends Component {
             col:1,
             img_path:"",
             img:["",""]
-        }
+        },
+        none_exist:""
                      };
         this.detail();
 
@@ -44,9 +45,16 @@ export default class Product extends Component {
 
             if(res.data[0]){
                 this.setState({
-                    detail: res.data[0]
+                    detail: res.data[0],
+                    none_exist:""
                     
                 })
+            }
+            else{
+                this.setState({
+                    none_exist:"1"
+                    
+                })  
             }
 
 
@@ -145,7 +153,7 @@ export default class Product extends Component {
 
               </> }
 
-              {this.state.detail.table_eng[0][0]=="" && <>
+              {this.state.none_exist=="1" && <>
               
               <Container className="mt-5 text-center"><h1>< FormattedMessage id="none_exist" defaultMessage="The product you are looking for doesn't exist" /></h1></Container>
               
