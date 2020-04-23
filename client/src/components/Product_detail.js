@@ -8,16 +8,15 @@ import {Carousel_component} from './shared_components/carousel.component.js'
 export default class Product extends Component {
     constructor(props) {
         super(props);
-        this.src_company=['1','2'];
 
-        this.company_directory="./pictures/product_img/SupaMop_I/";
 
         this.state = { detail:{
             table_eng:[[""],[""]],
             table_th:[[""],[""]],
             table_zh:[[""],[""]],
             col:1,
-            img_path:""
+            img_path:"",
+            img:["",""]
         }
                      };
         this.detail();
@@ -133,7 +132,7 @@ export default class Product extends Component {
               <Container className="mt-5">
                  <Row>
                  <div className="mx-auto col-12 col-md-10">
-                 <Carousel_component src={this.src_company} title={[]} directory={this.company_directory}/>
+                 <Carousel_component src={this.state.detail.img} title={[]} directory={this.state.detail.img_path}/>
                  </div>
                  </Row> 
               </Container>
