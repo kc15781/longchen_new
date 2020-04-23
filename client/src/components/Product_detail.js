@@ -3,8 +3,9 @@ import { Row, Col, Container, Image, Table } from 'react-bootstrap';
 import './Stylesheet/Stylesheet_product.css'
 import axios from 'axios';
 import { FormattedMessage} from 'react-intl';
-import { Link,Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {Carousel_component} from './shared_components/carousel.component.js'
+
 export default class Product extends Component {
     constructor(props) {
         super(props);
@@ -40,11 +41,15 @@ export default class Product extends Component {
 
             axios.post('/api/api/detail',product_data)
             .then(res => {
-    
-              this.setState({
-                detail: res.data[0]
-                
-            })
+
+            if(res.data[0]){
+                this.setState({
+                    detail: res.data[0]
+                    
+                })
+            }
+
+
 
             //if nothing found need to a code to redirect the page
         
@@ -77,8 +82,9 @@ export default class Product extends Component {
 
 
         return (
-
+          
             <div>
+            {this.state.detail.table_eng[0][0]!="" && <>
               <Container className="mt-5">
                   <h1>{this.title()}</h1>
               </Container>
@@ -137,6 +143,13 @@ export default class Product extends Component {
                  </Row> 
               </Container>
 
+              </> }
+
+              {this.state.detail.table_eng[0][0]=="" && <>
+              
+              <Container className="mt-5 text-center"><h1>< FormattedMessage id="none_exist" defaultMessage="The product you are looking for doesn't exist" /></h1></Container>
+              
+               </>}
 
             </div>
 
