@@ -14,13 +14,17 @@ import { messages } from "./languages/messages";
 import './components/Stylesheet/Stylesheet.css';
 import { Row, Col, Container } from 'react-bootstrap';
 
-function App() {
+function App(props) {
 
 
     const [locale, setLocale] = useState("en");
 
+
+
     function change_locale(new_locale) {
+
         setLocale(new_locale);
+        
     }
 
     return (
@@ -32,7 +36,7 @@ function App() {
  
                 <Switch>
                 <Route path="/" exact render={(props) => <Home {...props} locale={locale} />} />
-                <Route path="/Product" exact render={(props) => <Product {...props} locale={locale} />} />
+                <Route path="/Product" exact render={(props) => <Product {...props} locale={locale}  />} />
                 <Route path="/Employment" exact component={Employment} />
                 <Route path="/Contact" exact render={(props) => <Contact {...props} locale={locale} />} />
                 <Route path="/Product_detail" exact render={(props) => <Product_detail {...props} locale={locale} />} />

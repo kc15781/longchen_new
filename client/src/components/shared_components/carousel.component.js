@@ -14,7 +14,7 @@ export const Carousel_component = (props) => {
 
     return (
      <Container className="mb-5">
-      <Carousel className="mt-5 shadow_custom" activeIndex={index} onSelect={handleSelect} interval={2000}>
+      <Carousel className="mt-5 shadow_custom" activeIndex={index} onSelect={handleSelect} interval={5000} >
           {props.src.map((value, index) => {
             return (         
                 <Carousel.Item>

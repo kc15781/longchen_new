@@ -4,12 +4,10 @@ var nodemailer = require('nodemailer');
 var validator = require('validator');
 require('dotenv').config();
 const password = process.env.email_password;
-//Item Model 
+// Model 
 const Products = require('../../models/products_model');
+const Details = require('../../models/detail_model');
 
-// @route GET api/items
-// @desc Get All Items
-// @access Public 
 
 router.post('/form',(req,res)=>{
     
@@ -79,7 +77,7 @@ router.post('/form',(req,res)=>{
 
 })
 
-router.post('/products',(req,res)=>{
+router.get('/products',(req,res)=>{
     
 
 
@@ -109,6 +107,30 @@ router.post('/products',(req,res)=>{
 
     Promise.all([promiseA, promiseB]).then(function(values) {
         res.json(values)
+      });
+
+
+})
+
+router.post('/detail',(req,res)=>{
+    
+
+
+
+    const promiseA = new Promise( (resolve, reject) => {
+        
+            Details.find({"product_title_eng":req.body.product}, {_id:0})
+            .then(detail => {resolve(detail);})
+
+
+
+    });
+
+
+    promiseA.then(function(values) {
+
+        res.json(values)
+
       });
 
 

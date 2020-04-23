@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import { FormattedMessage} from 'react-intl';
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav, Row } from 'react-bootstrap';
 import { useSpring, animated } from 'react-spring';
 
 
@@ -22,10 +22,10 @@ const Animation_logo = () => {
         to: { opacity: 1 },
         config: { duration: 2000 }
     });
-    return <div>
+    return <div className="col-9 col-sm-6 col-md-4 mx-auto">
         <Animated animationIn="flipInX" animationOut="fadeOut" isVisible={true}>
             <animated.div style={fade}>
-                <Image src={process.env.PUBLIC_URL + '/logo/logo.png'} className="logo shadow_custom" fluid/>
+                <Image  src={process.env.PUBLIC_URL + '/logo/logo.png'} className=" shadow_custom" fluid/>
             </animated.div>
         </Animated>
     </div>
@@ -50,8 +50,6 @@ const Animation_company = () => {
 
 export const NavBar = (props) => {
 
-    
-
 
     return (
         <div>
@@ -69,9 +67,9 @@ export const NavBar = (props) => {
                 </Nav>
                 <Nav>
                     <Nav className="nav-link"></Nav>
-                    <Nav><Link to="#" onClick={() => props.change_locale("en")} className="nav-link">< FormattedMessage id="nav_Lang" defaultMessage="English" /></Link></Nav>
-                    <Nav><Link to="#" onClick={() => props.change_locale("zh")} className="nav-link">< FormattedMessage id="nav_Lang" defaultMessage="中文" /></Link></Nav>
-                    <Nav><Link to="#" onClick={() => props.change_locale("th")} className="nav-link">< FormattedMessage id="nav_Lang" defaultMessage="ภาษาไทย" /></Link></Nav>
+                    <Nav ><div onClick={() => props.change_locale("en")} className="nav-link cursor">< FormattedMessage id="nav_Lang" defaultMessage="English" /></div></Nav>
+                    <Nav><div onClick={() => props.change_locale("zh")} className="nav-link cursor">< FormattedMessage id="nav_Lang" defaultMessage="中文" /></div></Nav>
+                    <Nav><div onClick={() => props.change_locale("th")} className="nav-link cursor">< FormattedMessage id="nav_Lang" defaultMessage="ภาษาไทย" /></div></Nav>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
@@ -84,20 +82,20 @@ export const NavBar = (props) => {
              marginTop:"100px"
         }}>
 
-
-            <div className="text-center py-5" >
-
-                        <Animation_logo />
-
+            
+            <div className="text-center mx-auto py-5" >
+                        <Row> 
+                        <Animation_logo/>
+                        </Row>
                         
                         
-                        <div style={{ fontSize: '40px', fontWeight: 'bold', marginTop: '20px' }}>< FormattedMessage id="Company" defaultMessage="Longchen Technology" /></div>
+                        <div className="break" style={{ fontSize: '40px', fontWeight: 'bold', marginTop: '20px'}} >< FormattedMessage id="Company" defaultMessage="Longchen Technology" /></div>
                           
                              
                 
             </div>
 
-
+            
         </Container>    
 
         

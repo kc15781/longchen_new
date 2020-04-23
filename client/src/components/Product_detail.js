@@ -1,82 +1,165 @@
 import React, { Component } from 'react';
-import { Row, Col, Container, Image } from 'react-bootstrap';
+import { Row, Col, Container, Image, Table } from 'react-bootstrap';
 import './Stylesheet/Stylesheet_product.css'
 import axios from 'axios';
+import { FormattedMessage} from 'react-intl';
 import { Link } from 'react-router-dom';
+import {Carousel_component} from './shared_components/carousel.component.js'
+
 export default class Product extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { product_collection:[],
-                       product:[]
+
+        this.state = { detail:{
+            table_eng:[[""],[""]],
+            table_th:[[""],[""]],
+            table_zh:[[""],[""]],
+            col:1,
+            img_path:"",
+            img:["",""]
+        }
                      };
+        this.detail();
 
-console.log(props.locale)
 
     }
 
-    componentDidMount(){
-        this.product()
-    }
+    
 
 
-    product() {
+    detail() {
+        let search = window.location.search;
+        let params = new URLSearchParams(search);
+        let product = params.get('product');
+        
 
-            axios.post('/api/api/products')
+        
+        const product_data ={
+            product: product
+        }
+
+            axios.post('/api/api/detail',product_data)
             .then(res => {
-              
-              this.setState({
-                product_collection: res.data[0],
-                product:res.data[1]
-            })
-          
 
+            if(res.data[0]){
+                this.setState({
+                    detail: res.data[0]
+                    
+                })
+            }
+
+
+
+            //if nothing found need to a code to redirect the page
+        
             })
             .catch((error) => {
                 console.log(error);
             })
+
     }
 
+
+    tb_content(i,ii){
+        if(this.props.locale=="en"){return(this.state.detail.table_eng[i][ii])}
+        else if(this.props.locale=="th"){return(this.state.detail.table_th[i][ii])}
+        else if(this.props.locale=="zh"){return(this.state.detail.table_zh[i][ii])}
+        }
+    title(){
+        if(this.props.locale=="en"){return(this.state.detail.product_title_eng)}
+        else if(this.props.locale=="th"){return(this.state.detail.product_title_th)}
+        else if(this.props.locale=="zh"){return(this.state.detail.product_title_zh)}
+        }    
 
 
 
     render() {
+        
 
+        // need to add carousel
 
 
 
         return (
-
+          
             <div>
-                
-                {this.state.product_collection.map((value, index) => {
-                    return (         
-                            <Container >
-                                <Row >
-
-                                <h1 className="my-5 col-12">{this.state.product_collection[index]}</h1>
+            {this.state.detail.table_eng[0][0]!="" && <>
+              <Container className="mt-5">
+                  <h1>{this.title()}</h1>
+              </Container>
 
 
-                                    {this.state.product.map((value_product, index_product) => {
+
+              <Container className="mt-5 break">
+                <Row>
+                <div className="col-12">
+                <Table striped bordered hover >
+                <thead>
+                    <tr>
+                    <th >{this.tb_content(0,0)}</th>
+                    <th colspan={Number(this.state.detail.col)+1-this.state.detail.table_eng[0].length}>{this.tb_content(0,1)}</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    
+                    {this.state.detail.table_eng.map((value, index) => {
+                            
+                                    return ( <> {index!=0 &&   <tr>
+                                    {this.state.detail.table_eng[index].map((value1, index1) => {
                                         return (    <>     
 
-                                                     {this.state.product[index_product].product_collection_eng==value && 
-                                                            <Link className="product_img"  to="/"><div className="my-5 col-auto">
-                                                                <Image className="shadow_custom mb-3" src={"./pictures/product_img/product_page/"+this.state.product[index_product].image} style={{height:"250px"}} />
-                                                                <h2 className="text-center">{this.state.product[index_product].product_title_eng}</h2>
-                                                            </div></Link>}
+                                                        {index1!=0 &&
+                                                        <td  colspan={Number(this.state.detail.col)+1-this.state.detail.table_eng[index].length}>{this.tb_content(index,index1)}</td>
+                                                        }
+
+                                                        {index1==0 &&
+                                                        <td >{this.tb_content(index,index1)}</td>
+                                                        }
                                                     </>
                                                 )
                                     })}
+                                    </tr>} </>)
 
-                                </Row>
-                            </Container>
-                        )
-                })}
+                    })}
+                    
+                    <tr>
+                    <td  colspan={Number(this.state.detail.col)}>< FormattedMessage id="product_5" defaultMessage="If you wish to purchase or you have any questions, please " /><Link to="/Contact">< FormattedMessage id="contact_link" defaultMessage="contact us" /></Link></td>
+                    </tr>
+                </tbody>
+                </Table>
+                </div>
+                </Row>
 
-                
+              </Container>    
+
+
+              <Container className="mt-5">
+                 <Row>
+                 <div className="mx-auto col-12 col-md-10">
+                 <Carousel_component src={this.state.detail.img} title={[]} directory={this.state.detail.img_path}/>
+                 </div>
+                 </Row> 
+              </Container>
+
+              </> }
+
+              {this.state.detail.table_eng[0][0]=="" && <>
+              
+              <Container className="mt-5 text-center"><h1>< FormattedMessage id="none_exist" defaultMessage="The product you are looking for doesn't exist" /></h1></Container>
+              
+               </>}
+
             </div>
 
             )
+
+
+
+    // need to add 3d model
+
+
+
     }
 }
