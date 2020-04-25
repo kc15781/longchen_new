@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Container, Image, Table } from 'react-bootstrap';
+import { Row, Container, Table } from 'react-bootstrap';
 import './Stylesheet/Stylesheet_product.css'
 import axios from 'axios';
 import { FormattedMessage} from 'react-intl';
@@ -49,6 +49,8 @@ export default class Product extends Component {
                     none_exist:""
                     
                 })
+
+                
             }
             else{
                 this.setState({
@@ -70,16 +72,27 @@ export default class Product extends Component {
 
 
     tb_content(i,ii){
-        if(this.props.locale=="en"){return(this.state.detail.table_eng[i][ii])}
-        else if(this.props.locale=="th"){return(this.state.detail.table_th[i][ii])}
-        else if(this.props.locale=="zh"){return(this.state.detail.table_zh[i][ii])}
+        if(this.props.locale=="en"){return(this.state.detail.table_eng[1][i][ii])}
+        else if(this.props.locale=="th"){return(this.state.detail.table_th[1][i][ii])}
+        else if(this.props.locale=="zh"){return(this.state.detail.table_zh[1][i][ii])}
         }
+
+    tb_heading(i){
+        if(this.props.locale=="en"){return(this.state.detail.table_eng[0][i])}
+        else if(this.props.locale=="th"){return(this.state.detail.table_th[0][i])}
+        else if(this.props.locale=="zh"){return(this.state.detail.table_zh[0][i])}
+        }
+    
     title(){
         if(this.props.locale=="en"){return(this.state.detail.product_title_eng)}
         else if(this.props.locale=="th"){return(this.state.detail.product_title_th)}
         else if(this.props.locale=="zh"){return(this.state.detail.product_title_zh)}
         }    
-
+    col(index,index1){
+        if(index1===0){return (1)}
+        else {return (Number(this.state.detail.col)+1-this.state.detail.table_eng[1][index].length)}
+        
+    }
 
 
     render() {
@@ -105,35 +118,27 @@ export default class Product extends Component {
                 <Table striped bordered hover >
                 <thead>
                     <tr>
-                    <th >{this.tb_content(0,0)}</th>
-                    <th colspan={Number(this.state.detail.col)+1-this.state.detail.table_eng[0].length}>{this.tb_content(0,1)}</th>
+                    <th >{this.tb_heading(0)}</th>
+                    <th colSpan={Number(this.state.detail.col)+1-this.state.detail.table_eng[0].length}>{this.tb_heading(1)}</th>
                     </tr>
                 </thead>
                 <tbody>
 
                     
-                    {this.state.detail.table_eng.map((value, index) => {
+                    {this.state.detail.table_eng[1].map((value, index) => {
                             
-                                    return ( <> {index!=0 &&   <tr>
-                                    {this.state.detail.table_eng[index].map((value1, index1) => {
-                                        return (    <>     
-
-                                                        {index1!=0 &&
-                                                        <td  colspan={Number(this.state.detail.col)+1-this.state.detail.table_eng[index].length}>{this.tb_content(index,index1)}</td>
-                                                        }
-
-                                                        {index1==0 &&
-                                                        <td >{this.tb_content(index,index1)}</td>
-                                                        }
-                                                    </>
+                                    return (<tr key={"row"+index}>
+                                    {this.state.detail.table_eng[1][index].map((value1, index1) => {
+                                        return (     
+                                                    <td key={"col"+index1} colSpan={this.col(index,index1)}>{this.tb_content(index,index1)}</td>
                                                 )
                                     })}
-                                    </tr>} </>)
+                                    </tr>)
 
                     })}
                     
                     <tr>
-                    <td  colspan={Number(this.state.detail.col)}>< FormattedMessage id="product_5" defaultMessage="If you wish to purchase or you have any questions, please " /><Link to="/Contact">< FormattedMessage id="contact_link" defaultMessage="contact us" /></Link></td>
+                    <td  colSpan={Number(this.state.detail.col)}>< FormattedMessage id="product_5" defaultMessage="If you wish to purchase or you have any questions, please " /><Link to="/Contact">< FormattedMessage id="contact_link" defaultMessage="contact us" /></Link></td>
                     </tr>
                 </tbody>
                 </Table>

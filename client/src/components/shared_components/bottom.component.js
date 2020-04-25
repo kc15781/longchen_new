@@ -19,6 +19,8 @@ export const Bottom_component = (props) => {
             <h5>Tel: +66 (0)38190623</h5>
             <h5>Fax : +66 (0)38190624</h5>
             <h5>Email : longchenthai@hotmail.co.th</h5>
+            <h5>Wechat ID : kailung123</h5>
+            <h5>Line ID : 123kailungchu</h5>
             <h5>< FormattedMessage id="bottom_address" defaultMessage="Address : 52/1 Moo 1 Mapphai, Ban Bueng, Chonburi 20170 Thailand" /></h5>
           </div>
           </div>

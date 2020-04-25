@@ -30,13 +30,13 @@ export default class Product extends Component {
 
     componentDidUpdate(prevProps) {
 
-        if(prevProps.locale!=this.props.locale){
-            if(this.props.locale=="en"){
+        if(prevProps.locale!==this.props.locale){
+            if(this.props.locale==="en"){
                 this.setState({ 
                 successful_msg:"The message is sent",
                 unsuccessful_msg:"Please fill out the form and check your email"
             });
-            }else if(this.props.locale=="zh"){
+            }else if(this.props.locale==="zh"){
                 this.setState({ 
                 successful_msg:"消息已发送",
                 unsuccessful_msg:"请填写表格并检查您的电子邮件"
@@ -113,7 +113,7 @@ export default class Product extends Component {
 
     form_onChange(e) {
 
-        if(e.target.type=="email"){
+        if(e.target.type==="email"){
             this.setState({
                 form_email: e.target.value,
                 email_validated:e.currentTarget.checkValidity()

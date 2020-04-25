@@ -84,9 +84,6 @@ export const messages = {
         Salesperson2:"3年以上的业务经验 (优先)",
         none_exist:"您寻找的产品不存在"
 
-
-        
-
     },
     th: {
         nav_Home: "หน้าหลัก",

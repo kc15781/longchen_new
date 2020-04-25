@@ -17,7 +17,7 @@ export const Carousel_component = (props) => {
       <Carousel className="mt-5 shadow_custom" activeIndex={index} onSelect={handleSelect} interval={5000} >
           {props.src.map((value, index) => {
             return (         
-                <Carousel.Item>
+                <Carousel.Item key={"item"+index}>
                   <img
                     className="d-block w-100"            
                     src={props.directory+value+".jpg"}

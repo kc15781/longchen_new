@@ -80,7 +80,7 @@ export default class Home extends Component {
 
                 <Container className="bg_color2 px-5 pt-1 pb-5 mt-5 " >
                     <div className="embed-responsive embed-responsive-16by9 mt-5 shadow_custom">
-                    <iframe className="embed-responsive-item " src="https://www.youtube.com/embed/UcZmM48AC5k" allowfullscreen></iframe>
+                    <iframe className="embed-responsive-item " src="https://www.youtube.com/embed/UcZmM48AC5k" allowFullScreen></iframe>
                     </div>
                 </Container>
                 

@@ -17,7 +17,7 @@ export const Circle_component = (props) => {
                     return (         
 
 
-                        <VisibilitySensor >
+                        <VisibilitySensor key={"circle"+index}>
                             {({ isVisible }) => {
                             const percentage = isVisible ? 100 : 0;
                                 return (

@@ -12,7 +12,7 @@ import Employment from "./components/Employment";
 import Contact from "./components/Contact";
 import { messages } from "./languages/messages";
 import './components/Stylesheet/Stylesheet.css';
-import { Row, Col, Container } from 'react-bootstrap';
+import {  Container } from 'react-bootstrap';
 
 function App(props) {
 
