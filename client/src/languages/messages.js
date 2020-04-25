@@ -82,7 +82,8 @@ export const messages = {
         Salesperson:"业务",
         Salesperson1:"最低12000 泰铢 /月 ",
         Salesperson2:"3年以上的业务经验 (优先)",
-        none_exist:"您寻找的产品不存在"
+        none_exist:"您寻找的产品不存在",
+        Contact_info:"联络资料"
 
     },
     th: {
@@ -164,7 +165,8 @@ export const messages = {
         Salesperson:"พนักงานขาย",
         Salesperson1:"เริ่มต้นที่ 12,000 บาทต่อเดือน",
         Salesperson2:"มีประสบการณ์ ด้านขาย 3 ปี (มีหรือไม่มีก็ได้)",
-        none_exist:"ไม่มีผลิตภัณฑ์ที่คุณค้นหา"
+        none_exist:"ไม่มีผลิตภัณฑ์ที่คุณค้นหา",
+        Contact_info:"ที่ติดต่อได้"
 
  
     }

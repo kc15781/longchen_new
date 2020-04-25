@@ -142,6 +142,20 @@ export default class Product extends Component {
 
             </Container>
 
+
+            <Container className="bg_color2 mt-5 text-center py-5">
+ 
+            <h1 style={{borderBottom:"solid white", textAlign:'center'}} className="mb-3 pb-3">< FormattedMessage id="Contact_info" defaultMessage="Contact Details" /></h1>
+            <p>Tel: +66 (0)38190623</p>
+            <p>Fax : +66 (0)38190624</p>
+            <p>Email : longchenthai@hotmail.co.th</p>
+            <p>Wechat ID : kailung123</p>
+            <p>Line ID : 123kailungchu</p>
+            <p>< FormattedMessage id="bottom_address" defaultMessage="Address : 52/1 Moo 1 Mapphai, Ban Bueng, Chonburi 20170 Thailand" /></p>
+
+
+            </Container>
+
             <Container className="bg_color3 mt-5 text-center py-5">
 
             <Form validated={true}>

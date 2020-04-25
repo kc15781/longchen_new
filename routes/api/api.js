@@ -159,41 +159,41 @@ router.post('/detail',(req,res)=>{
 })
 
 
-router.get('/mongodb',(req,res)=>{
+// router.get('/mongodb',(req,res)=>{
 
-    const promiseA = new Promise( (resolve, reject) => {
-    Details.find({product_title_eng:"SupaMop I"}, {_id:0,table_eng:1,table_th:1,table_zh:1})
-    .then(detail => {
-        resolve(detail)
+//     const promiseA = new Promise( (resolve, reject) => {
+//     Details.find({product_title_eng:"SupaMop I"}, {_id:0,table_eng:1,table_th:1,table_zh:1})
+//     .then(detail => {
+//         resolve(detail)
 
         
     
-    })})
+//     })})
 
-    promiseA.then(function(values) {
+//     promiseA.then(function(values) {
         
-      let data_en=[values[0].table_eng[0],values[0].table_eng.splice(1,values[0].table_eng.length-1)]
-      let data_th=[values[0].table_th[0],values[0].table_th.splice(1,values[0].table_th.length-1)]
-      let data_zh=[values[0].table_zh[0],values[0].table_zh.splice(1,values[0].table_zh.length-1)]
-    //  [values[0].table_eng[0],values[0].table_eng[0]]
-    // values=values.slice(1, values.length-1);
-    //  console.log(values);
+//       let data_en=[values[0].table_eng[0],values[0].table_eng.splice(1,values[0].table_eng.length-1)]
+//       let data_th=[values[0].table_th[0],values[0].table_th.splice(1,values[0].table_th.length-1)]
+//       let data_zh=[values[0].table_zh[0],values[0].table_zh.splice(1,values[0].table_zh.length-1)]
+//     //  [values[0].table_eng[0],values[0].table_eng[0]]
+//     // values=values.slice(1, values.length-1);
+//     //  console.log(values);
 
-        Details.updateMany({},{$set: {table_eng:data_en, table_th:data_th, table_zh:data_zh}}).then(
+//         Details.updateMany({},{$set: {table_eng:data_en, table_th:data_th, table_zh:data_zh}}).then(
 
-                res.json("ok")
+//                 res.json("ok")
             
-        )
+//         )
 
         
         
-      })
+//       })
 
-    // db.details.update({product_title_eng:"SupaMop I"},{$set: {hey:kai}})
+//     // db.details.update({product_title_eng:"SupaMop I"},{$set: {hey:kai}})
     
 
 
-})
+// })
 
 // @route Post api/items
 // @desc Create a Post
