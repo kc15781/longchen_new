@@ -10,12 +10,12 @@ export function Modal_component(props) {
 
     return (
     <>
-        <Modal  show={props.trigger} onHide={handleClose}>
-            <Modal.Header closeButton>
+        <Modal size="lg" show={props.trigger} onHide={handleClose}>
+            <Modal.Header className="modal-lg" closeButton>
                 <Modal.Title>Notice</Modal.Title>
             </Modal.Header>
-            <Modal.Body>{props.msg}</Modal.Body>
-            <Modal.Footer>
+            <Modal.Body className="modal-lg">{props.msg}</Modal.Body>
+            <Modal.Footer className="modal-lg">
                 <Button variant="secondary" onClick={handleClose}>
                     Close
           </Button>
