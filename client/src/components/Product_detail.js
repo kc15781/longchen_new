@@ -21,19 +21,22 @@ export default class Product extends Component {
         },
         none_exist:""
                      };
-        this.detail();
+        
 
 
     }
 
     
+    componentDidMount(){
+        this.detail();
 
+    }
 
     detail() {
         let search = window.location.search;
         let params = new URLSearchParams(search);
         let product = params.get('product');
-        
+      
 
         
         const product_data ={
@@ -105,7 +108,7 @@ export default class Product extends Component {
         return (
           
             <div>
-            {this.state.detail.table_eng[0][0]!="" && <>
+            {this.state.detail.table_eng[0][0]!=="" && <>
               <Container className="mt-5">
                   <h1>{this.title()}</h1>
               </Container>
@@ -158,11 +161,17 @@ export default class Product extends Component {
 
               </> }
 
-              {this.state.none_exist=="1" && <>
+              {this.state.none_exist==="1" && 
               
               <Container className="mt-5 text-center"><h1>< FormattedMessage id="none_exist" defaultMessage="The product you are looking for doesn't exist" /></h1></Container>
               
-               </>}
+               }
+
+               {this.state.detail.table_eng[0][0]==="" && this.state.none_exist!=="1" &&
+              
+              <Container className="mt-5 text-center"><h1>< FormattedMessage id="Loading" defaultMessage="Loading" /></h1></Container>
+              
+               }
 
             </div>
 

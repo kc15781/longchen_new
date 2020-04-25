@@ -3,6 +3,7 @@ import { Row, Container, Image } from 'react-bootstrap';
 import './Stylesheet/Stylesheet_product.css'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { FormattedMessage} from 'react-intl';
 export default class Product extends Component {
     constructor(props) {
         super(props);
@@ -15,6 +16,8 @@ export default class Product extends Component {
 
     }
 
+        
+ 
     componentDidMount(){
         this.product()
 
@@ -57,7 +60,7 @@ export default class Product extends Component {
         return (
 
             <div>
-                
+                {this.state.product_collection!="" && <>
                 {this.state.product_collection.map((value, index) => {
                     return (         
                             <Container key={"container"+index}>
@@ -82,8 +85,13 @@ export default class Product extends Component {
                             </Container>
                         )
                 })}
+                </>}
 
+                {this.state.product_collection=="" && 
                 
+                <Container className="mt-5 text-center"><h1>< FormattedMessage id="Loading" defaultMessage="Loading data" /></h1></Container>
+                
+                }
             </div>
 
             )
