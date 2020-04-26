@@ -32,7 +32,7 @@ export default class Product extends Component {
                 product_collection: res.data[0],
                 product:res.data[1]
             })
-            
+            console.log(this.state.product[0])
 
             })
             .catch((error) => {
@@ -47,9 +47,9 @@ export default class Product extends Component {
     }
 
     product_collection(index){
-        if(this.props.locale==="en"){return(this.state.product[index].product_collection_eng)}
-        else if(this.props.locale==="th"){return(this.state.product[index].product_collection_th)}
-        else if(this.props.locale==="zh"){return(this.state.product[index].product_collection_zh)}
+        if(this.props.locale==="en"){return(this.state.product[index][0].product_collection_eng)}
+        else if(this.props.locale==="th"){return(this.state.product[index][0].product_collection_th)}
+        else if(this.props.locale==="zh"){return(this.state.product[index][0].product_collection_zh)}
         }
 
 
