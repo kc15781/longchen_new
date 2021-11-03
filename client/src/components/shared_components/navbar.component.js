@@ -41,7 +41,7 @@ const Animation_company = () => {
         to: { opacity: 1 },
         config: { duration: 2000 }
     });
-    return <animated.div style={fade}>Longchen Technology</animated.div>
+    return <animated.div style={fade}>Longbee packaging (Thailand) Co., LTD.</animated.div>
 }
 
 
@@ -89,7 +89,7 @@ export const NavBar = (props) => {
                         </Row>
                         
                         
-                        <div className="break" style={{ fontSize: '40px', fontWeight: 'bold', marginTop: '20px'}} >< FormattedMessage id="Company" defaultMessage="Longchen Technology" /></div>
+                    <div className="break" style={{ fontSize: '40px', fontWeight: 'bold', marginTop: '20px' }} >< FormattedMessage id="Company" defaultMessage="Longbee packaging (Thailand) Co., LTD." /></div>
                           
                              
                 

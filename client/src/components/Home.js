@@ -98,11 +98,11 @@ export default class Home extends Component {
 
                         
 
-                        <p>< FormattedMessage id="intrduction1" defaultMessage="Mr. Chen-I Chu was the president of Chonburi Thai-Taiwan business association for 2 consecutive years and currently the manager of Longchen Technology Co., Ltd. in Thailand, which is affiliated with Longbee Plastic Co., Ltd. in Taiwan wholly-owned by Mr. Longyi Chu." /></p>
+                        <p>< FormattedMessage id="intrduction1" defaultMessage="Mr. Chen-I Chu was the president of Chonburi Thai-Taiwan business association for 2 consecutive years and currently the manager of Longbee packaging (Thailand) Co., LTD., which is affiliated with Longbee Plastic Co., Ltd. in Taiwan wholly-owned by Mr. Longyi Chu." /></p>
 
                         <p>< FormattedMessage id="intrduction2" defaultMessage="Longbee Plastic Co., Ltd., since its original founding year of 1960, has been challenged by a series of product requirements and designs due to its broad and experienced knowledge in plastic injection moulding. The company is widely known and trusted in this particular specialised field. Mr. Longyi Chu, father of Mr. Chen-I Chu, further excelled in his career by becoming the only president of plastic business association to have taken the position for 2 consecutive years in Hsinchu city, Taiwan whilst no one else has taken it for more than one year." /></p>
 
-                        <p>< FormattedMessage id="intrduction3" defaultMessage="On Mr. Longyi Chu's request, Longbee Plastic Co., Ltd. was set up in Thailand by Mr. Chen-I Chu in 2002. Later in 2014 the company expanded in size and relocated to Chonburi. About the same time it was renamed to Longchen Technology Co., Ltd. and currently the size increased to 35200 " />< FormattedMessage id="intrduction3_1" defaultMessage={<React.Fragment> m<sup>2</sup></React.Fragment>} />< FormattedMessage id="intrduction3_2" defaultMessage="." /></p>
+                        <p>< FormattedMessage id="intrduction3" defaultMessage="On Mr. Longyi Chu's request, Longbee Plastic Co., Ltd. was set up in Thailand by Mr. Chen-I Chu in 2002. Later in 2014 the company expanded in size and relocated to Chonburi. About the same time it was renamed to Longbee packaging (Thailand) Co., LTD. and currently the size increased to 35200 " />< FormattedMessage id="intrduction3_1" defaultMessage={<React.Fragment> m<sup>2</sup></React.Fragment>} />< FormattedMessage id="intrduction3_2" defaultMessage="." /></p>
 
 
                     </div>
@@ -131,7 +131,7 @@ export default class Home extends Component {
                         <div className=" mt-5 ">
 
                             
-                            <p>< FormattedMessage id="intrduction4" defaultMessage="Longchen Technology Co., Ltd has superior experience in production of several plastic products, including electronics, automobile components, treadmills, hospital beds and many more. All products produced are either self-designed or patents are bought which legally allow the production. At present, SupaMop is the most famous manufactured product across South-East Asia and Europe. The company's management philosophy is to provide an optimal working environment for the workers up to a degree that the company would be seemingly their home. This is achieved in order to boost the productivity and quality of the products and thus satisfying the customers. The factory has a number of injection presses ranging from 120 to 650 tonnes and in total 30 machines are fully functional." /></p>
+                        <p>< FormattedMessage id="intrduction4" defaultMessage="Longbee packaging (Thailand) Co., LTD. has superior experience in production of several plastic products, including electronics, automobile components, treadmills, hospital beds and many more. All products produced are either self-designed or patents are bought which legally allow the production. At present, SupaMop is the most famous manufactured product across South-East Asia and Europe. The company's management philosophy is to provide an optimal working environment for the workers up to a degree that the company would be seemingly their home. This is achieved in order to boost the productivity and quality of the products and thus satisfying the customers. The factory has a number of injection presses ranging from 120 to 650 tonnes and in total 30 machines are fully functional." /></p>
 
                             <p>< FormattedMessage id="intrduction5" defaultMessage="Following Mr. Chen-I Chu's success in business and furthermore due to his altruistic personality he was elected to be the 24th and 25th president of Chonburi Thai-Taiwan business association. Nevertheless, he continued to excel in his career and reputation while he was the president via hosting, organising and promoting several overwhelmingly positive events and also succeeding in several competitions. For example, during sports day 2014, a sports competition between various Thai-Taiwan business associations of different Thai provinces and Chonburi association managed to win the most prizes out of all groups. It was a glorious achievement as it was the first time that Chonburi association achieved a first in sports day." /></p>
 
@@ -156,7 +156,7 @@ export default class Home extends Component {
                  </div>   
                  <div className="col-12 col-xl-6 mt-5">
                         
-                        <p>< FormattedMessage id="product_1" defaultMessage="Longchen Technology is a company based in Chonburi, Thailand that utilises injection molding technology to manufacture high quality plastic products." /></p>
+                            <p>< FormattedMessage id="product_1" defaultMessage="Longbee packaging (Thailand) Co., LTD. is a company based in Chonburi, Thailand that utilises injection molding technology to manufacture high quality plastic products." /></p>
 
                         <p>< FormattedMessage id="product_2" defaultMessage="Our self-designed products are manufactured by us and sold directly to large supermarkets and wholesalers. Apart from these products, we also manufacture customised plastic components from other companies." /></p>
 
