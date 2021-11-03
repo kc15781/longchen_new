@@ -16,7 +16,7 @@ export const Bottom_component = (props) => {
           <div className=" mt-4 break" >
             <h3>< FormattedMessage id="bottom_heading" defaultMessage="Longchen Technology Co., Ltd. Thailand" /></h3>
             <div className="text-left ml-4 pl-4" style={{borderLeft:"solid red"}}>
-            <h5>Tel: +66 (0)38190623Y</h5>
+            <h5>Tel: +66 (0)38190623</h5>
             <h5>Fax : +66 (0)38190624</h5>
             <h5>Email : longchenthai@hotmail.co.th</h5>
             <h5>Wechat ID : kailung123</h5>
